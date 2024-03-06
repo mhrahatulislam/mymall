@@ -1,6 +1,7 @@
 package com.example.mymall;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
@@ -16,15 +17,16 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
 
-        frameLayout=findViewById(R.id.registration);
-        setFragment();
+        frameLayout=findViewById(R.id.registration_framelayout);
+        setFragment(new SinginFragment());
 
     }
 
-    private void setFragment() {
+    private void setFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(frameLayout.getId(),fragment);
+        fragmentTransaction.commit();
 
     }
 }
