@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class SingupFragment extends Fragment {
 
     public SingupFragment() {
@@ -30,7 +32,7 @@ public class SingupFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.singup_fragment, container, false);
         alreadyHaveAnAccount = view.findViewById(R.id.btn_singup_alradyhaveanaccount);
-        parentFramelayout = getActivity().findViewById(R.id.registration_framelayout);
+        parentFramelayout = requireActivity().findViewById(R.id.registration_framelayout);
         return view;
     }
 
