@@ -5,7 +5,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@drawable/splash_activity_background"
     tools:context=".SplashScreen">
-
 </androidx.constraintlayout.widget.ConstraintLayout>

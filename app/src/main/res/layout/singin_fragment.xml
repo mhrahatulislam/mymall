@@ -24,7 +24,8 @@
             app:layout_constraintHorizontal_bias="0.994"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ContentDescription">
 
         </ImageView>
 
@@ -38,7 +39,8 @@
             app:layout_constraintHorizontal_bias="0.134"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06">
+            app:layout_constraintVertical_bias="0.06"
+            tools:ignore="ContentDescription,ImageContrastCheck">
 
         </ImageView>
 
@@ -48,13 +50,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
             android:ems="10"
-            android:hint="Enter You Email"
+            android:hint="@string/enter_you_email"
+            android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColor="@color/white"
+            android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ima_logo" />
+            app:layout_constraintTop_toBottomOf="@+id/ima_logo"
+            tools:ignore="Autofill" />
 
         <EditText
             android:id="@+id/password_filed"
@@ -62,13 +67,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Enter you Password"
+            android:hint="@string/enter_you_password"
+            android:inputType="textPassword"
             android:padding="16dp"
             android:textColor="@color/white"
+            android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_filed" />
+            app:layout_constraintTop_toBottomOf="@+id/email_filed"
+            tools:ignore="Autofill" />
 
         <TextView
             android:id="@+id/forgat_password"
@@ -76,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="16dp"
-            android:text="Forget Password"
+            android:text="@string/forget_password"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,9 +98,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:backgroundTint="#CD1103"
-            android:text="Sing In"
+            android:text="@string/sing_in"
             android:textAllCaps="false"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -104,8 +112,8 @@
             android:id="@+id/btn_singup_donthaveAnAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? Sing up!"
-            android:textSize="16dp"
+            android:text="@string/don_t_have_an_account_sing_up"
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
