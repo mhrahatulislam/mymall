@@ -1,19 +1,16 @@
 package com.example.mymall;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import java.util.Objects;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SingupFragment extends Fragment {
 
@@ -39,19 +36,13 @@ public class SingupFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        alreadyHaveAnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SetFragment(new SinginFragment());
-
-            }
-        });
+        alreadyHaveAnAccount.setOnClickListener(v -> SetFragment(new SinginFragment()));
 
     }
 
     private void SetFragment(Fragment fragment){
 
-        FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction= requireActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.slidefrom_left,R.anim.slideout_from_right);
         fragmentTransaction.replace(parentFramelayout.getId(),fragment);
         fragmentTransaction.commit();
