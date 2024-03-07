@@ -16,14 +16,10 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
-
         frameLayout=findViewById(R.id.registration_framelayout);
         setFragment(new SinginFragment());
-
     }
-
     private void setFragment(Fragment fragment) {
-
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();

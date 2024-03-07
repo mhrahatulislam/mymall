@@ -12,17 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-
 public class SinginFragment extends Fragment {
-
     public SinginFragment() {
         // Required empty public constructor
     }
-
     private TextView dontHaveAnAccount;
     private FrameLayout parentFramelayout;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,16 +28,13 @@ public class SinginFragment extends Fragment {
         parentFramelayout = requireActivity().findViewById(R.id.registration_framelayout);
         return view;
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         dontHaveAnAccount.setOnClickListener(v -> SetFragment(new SingupFragment()));
     }
-
     private void SetFragment(Fragment fragment){
-
         FragmentTransaction  fragmentTransaction= requireActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.slide_from_right,R.anim.slideout_from_left);
         fragmentTransaction.replace(parentFramelayout.getId(),fragment);

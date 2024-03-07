@@ -1,5 +1,6 @@
 package com.example.mymall;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,12 +15,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SingupFragment extends Fragment {
@@ -41,8 +46,6 @@ public class SingupFragment extends Fragment {
     private ProgressBar progressBtn;
 
     private FirebaseAuth firebaseAuth;
-
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
 
     @Override
@@ -66,12 +69,12 @@ public class SingupFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         alreadyHaveAnAccount.setOnClickListener(v -> SetFragment(new SinginFragment()));
-
-
         email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -143,15 +146,13 @@ public class SingupFragment extends Fragment {
         });
 
 
-        singUpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //todo send data to firebase
-                checkEmailandPassword();
-            }
+        singUpBtn.setOnClickListener(v -> {
+            //todo send data to firebase
+            checkEmailandPassword();
         });
 
     }
+
     private void SetFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
@@ -159,36 +160,67 @@ public class SingupFragment extends Fragment {
         fragmentTransaction.replace(parentFramelayout.getId(), fragment);
         fragmentTransaction.commit();
     }
+
     private void checkInputs() {
         if (!TextUtils.isEmpty(email.getText())) {
             if (!TextUtils.isEmpty(fullName.getText())) {
                 if (!TextUtils.isEmpty(password.getText())) {
                     if (!TextUtils.isEmpty(confirmPassword.getText())) {
                         singUpBtn.setEnabled(true);
-                        singUpBtn.setTextColor(Color.rgb(255,255,255));
+                        singUpBtn.setTextColor(Color.rgb(255, 255, 255));
                     } else {
                         // Handle case when confirmPassword is empty
                         singUpBtn.setEnabled(false);
-                        singUpBtn.setTextColor(Color.rgb(255,255,255));
+                        singUpBtn.setTextColor(Color.rgb(255, 255, 255));
                     }
                 } else {
                     // Handle case when password is empty
                     singUpBtn.setEnabled(false);
-                    singUpBtn.setTextColor(Color.rgb(255,205,155));
+                    singUpBtn.setTextColor(Color.rgb(255, 205, 155));
                 }
             } else {
                 // Handle case when fullName is empty
                 singUpBtn.setEnabled(false);
-                singUpBtn.setTextColor(Color.rgb(255,255,255));
+                singUpBtn.setTextColor(Color.rgb(255, 255, 255));
             }
         } else {
             // Handle case when email is empty
             singUpBtn.setEnabled(false);
-            singUpBtn.setTextColor(Color.rgb(255,255,255));
+            singUpBtn.setTextColor(Color.rgb(255, 255, 255));
         }
     }
-    private void checkEmailandPassword(){
 
+    private void checkEmailandPassword() {
+
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+        if (email.getText().toString().matches(emailPattern)) {
+            if (password.getText() .toString().equals(confirmPassword.getText().toString())) {
+
+                progressBtn.setVisibility(View.VISIBLE);
+                singUpBtn.setEnabled(false);
+                singUpBtn.setTextColor(Color.rgb(255, 255, 255));
+
+                firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                                startActivity(mainIntent);
+                                getActivity().finish();
+                            } else {
+                                progressBtn.setVisibility(View.INVISIBLE);
+                                singUpBtn.setEnabled(true);
+                                singUpBtn.setTextColor(Color.rgb(255, 255, 255));
+                                String error = task.getException().getMessage();
+                                Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            } else {
+                confirmPassword.setError("Password doesn't Matched");
+            }
+
+        } else {
+            email.setError("Invalid Email!");
+        }
 
     }
 
