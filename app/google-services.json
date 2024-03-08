@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "684592934476",
+    "firebase_url": "https://mymall-3cc10-default-rtdb.firebaseio.com",
+    "project_id": "mymall-3cc10",
+    "storage_bucket": "mymall-3cc10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684592934476:android:0880a9897c758d3374cee9",
+        "android_client_info": {
+          "package_name": "com.example.mymall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI5y2G9L1ZhlgcZNIZklTG8kWIsjsMido"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
