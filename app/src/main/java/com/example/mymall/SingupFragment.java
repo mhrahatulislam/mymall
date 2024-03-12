@@ -224,4 +224,5 @@ public class SingupFragment extends Fragment {
 
     }
 
+
 }
