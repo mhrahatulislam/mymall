@@ -195,7 +195,7 @@ public class SingupFragment extends Fragment {
 
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
         if (email.getText().toString().matches(emailPattern)) {
-            if (password.getText() .toString().equals(confirmPassword.getText().toString())) {
+            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
 
                 progressBtn.setVisibility(View.VISIBLE);
                 singUpBtn.setEnabled(false);
