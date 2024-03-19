@@ -74,6 +74,7 @@ public class SingupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         alreadyHaveAnAccount.setOnClickListener(v -> SetFragment(new SinginFragment()));
         email.addTextChangedListener(new TextWatcher() {
             @Override
@@ -206,6 +207,7 @@ public class SingupFragment extends Fragment {
                                 Intent mainIntent = new Intent(getActivity(), MainActivity.class);
                                 startActivity(mainIntent);
                                 getActivity().finish();
+
                             } else {
                                 progressBtn.setVisibility(View.INVISIBLE);
                                 singUpBtn.setEnabled(true);
@@ -223,6 +225,5 @@ public class SingupFragment extends Fragment {
         }
 
     }
-
 
 }
