@@ -14,10 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style
-        name="Splashscreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Splashscreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary"> @color/Read</item>
+        <item name="colorPrimary">@color/Read</item>
         <item name="colorPrimaryVariant">#F80303</item>
         <item name="colorOnPrimary">#E91E63</item>
         <!-- Secondary brand color. -->
@@ -31,13 +30,21 @@
     </style>
 
 
-    <style
-        name="Redprograssber" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Redprograssber" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary"> @color/Read</item>
+        <item name="colorPrimary">@color/Read</item>
         <item name="colorPrimaryDark">#F80303</item>
         <item name="colorAccent">@color/Read</item>
     </style>
+
+    <style name="Theme.MyMall.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyMall.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyMall.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>
