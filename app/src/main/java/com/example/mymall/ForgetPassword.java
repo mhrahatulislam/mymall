@@ -2,12 +2,6 @@ package com.example.mymall;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -21,10 +15,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
@@ -123,7 +119,6 @@ public class ForgetPassword extends Fragment {
                             progressBarforgetber.setVisibility(View.GONE);
 
                             textView_icon.setText(error);
-                            textView_icon.setTextColor(getResources().getColor(R.color.Read));
                             TransitionManager.beginDelayedTransition(emailIconcontainer);
                             emailIconcontainer.setVisibility(View.VISIBLE);
                             textView_icon.setVisibility(View.VISIBLE);
