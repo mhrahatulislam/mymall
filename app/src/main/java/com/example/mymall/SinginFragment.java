@@ -53,7 +53,6 @@ public class SinginFragment extends Fragment {
         View view= inflater.inflate(R.layout.singin_fragment, container, false);
         dontHaveAnAccount=view.findViewById(R.id.btn_singup_donthaveAnAccount);
         parentFramelayout = requireActivity().findViewById(R.id.registration_framelayout);
-
         editText_email= view.findViewById(R.id.email_filed);
         editText_password=view.findViewById(R.id.password_filed);
         textViewforget_password=view.findViewById(R.id.forgat_password);
@@ -68,6 +67,9 @@ public class SinginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dontHaveAnAccount.setOnClickListener(v -> SetFragment(new SingupFragment()));
+        textViewforget_password.setOnClickListener(v -> {
+            SetFragment (new ForgetPassword());
+        });
 
         editText_email.addTextChangedListener(new TextWatcher() {
             @Override

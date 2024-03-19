@@ -11,7 +11,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FrameLayout frameLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +18,8 @@ public class RegisterActivity extends AppCompatActivity {
         frameLayout=findViewById(R.id.registration_framelayout);
         setFragment(new SinginFragment());
     }
+
+
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(frameLayout.getId(),fragment);
