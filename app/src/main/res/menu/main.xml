@@ -2,8 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/search_icon"
         android:orderInCategory="100"
+        android:icon="@drawable/search"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/notification_icon"
+        android:orderInCategory="100"
+        android:icon="@drawable/notificationicon"
+        android:title="@string/notification"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/main_cart_icon"
+        android:orderInCategory="100"
+        android:icon="@drawable/cart"
+        android:title="@string/cart"
+        app:showAsAction="always" />
 </menu>
