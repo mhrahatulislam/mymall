@@ -6,6 +6,12 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_mymall"
+        android:name="com.example.mymall.ui.myMall.MymallFragment"
+        android:label="My Mall"
+        tools:layout="@layout/fragment_mymall" />
+
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.mymall.ui.home.HomeFragment"
         android:label="@string/menu_home"
@@ -22,4 +28,5 @@
         android:name="com.example.mymall.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
 </navigation>

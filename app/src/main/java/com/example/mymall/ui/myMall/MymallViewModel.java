@@ -1,16 +1,16 @@
-package com.example.mymall.ui.home;
+package com.example.mymall.ui.myMall;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MymallViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MymallViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is My Order fragment");
+        mText.setValue("This is Mall fragment");
     }
 
     public LiveData<String> getText() {

@@ -4,6 +4,12 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_Mall"
+            android:icon="@drawable/sopingmall"
+            android:title="My Mall" />
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/shopping_bag"
@@ -27,6 +33,11 @@
             android:icon="@drawable/user_check"
             android:title="My Profile" />
 
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/sign_out_alt"
+            android:title="My Profile" />
 
     </group>
 </menu>
