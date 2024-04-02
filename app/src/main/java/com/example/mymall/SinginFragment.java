@@ -60,6 +60,18 @@ public class SinginFragment extends Fragment {
         button_close = view.findViewById(R.id.btn_image);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        button_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(mainIntent);
+                getActivity().finish();
+
+            }
+        });
+
+
         return view;
     }
 

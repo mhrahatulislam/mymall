@@ -74,6 +74,17 @@ public class SingupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        crossBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(mainIntent);
+                getActivity().finish();
+
+            }
+        });
+
 
         alreadyHaveAnAccount.setOnClickListener(v -> SetFragment(new SinginFragment()));
         email.addTextChangedListener(new TextWatcher() {
